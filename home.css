@@ -106,15 +106,77 @@ body {
 
 /* Carrossel estética */
 
-.estetica {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .tituloEstetica {
     padding-top: 70px;
     font-family: "Aachen";
     font-size: 50px;
     color: #F9D500;
+}
+
+.estetica-carrossel {
+    position: relative;
+    padding: 15px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.carrossel {
+    overflow-x: auto;
+}
+
+.cards {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 40px;
+}
+
+.arrow-left,
+.arrow-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    width: 40px;
+    background: none;
+    opacity: 0.5;
+    transition: 400ms ease-in-out;
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    left: auto;
+    right: 0;
+}
+
+
+.arrow-left:hover,
+.arrow-right:hover {
+    opacity: 1;
+}
+
+.imagemCard {
+    width: 200px;
+    height: 100px;
+    flex-shrink: 0;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+.card1,
+.card2,
+.card3,
+.card4,
+.card5 {
+    width: 1000px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 20px;
 }
