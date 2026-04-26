@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "Cooper Black";
+    src: url(fontes/CooperFiveOpti-Black.otf);
+}
+
+@font-face {
+    font-family: "Aachen";
+    src: url(fontes/ufonts.com_aachen-bold-opentype.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+
+body {
+    background-color: black;
+}
+
+.banner {
+    width: 100%;
+    background-image: url('img/Banner\ Tarantino.png');
+    background-size: cover;
+    min-height: 110vh
+}
+
+.container-grid {
+    font-family: "Cooper Black";
+    width: 90vw;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    margin: 60px;
+}
+
+.menu a:hover {
+    color: #F9D500;
+    transition: 500ms;
+}
+
+.container-grid .titulo {
+    font-family: "Aachen";
+}
+
+
+.container-grid .titulo a {
+    color: #F9D500;
+    font-size: 38px;
+    text-decoration: none;
+}
+
+
+/* História */
+
+.historia {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.container-historia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 300px;
+}
+
+.titulo-historia {
+    padding-top: 70px;
+    font-family: "Aachen";
+    font-size: 50px;
+    color: #F9D500;
+}
+
+.imagem-historia {
+    width: 350px;
+}
+
+.imagem-historia {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.conteudo-historia {
+    font-family: "Cooper Black";
+    color: #fff;
+    max-width: 800px;
+    font-size: 26px;
+}
+
+/* Carrossel estética */
+
+.estetica {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tituloEstetica {
+    padding-top: 70px;
+    font-family: "Aachen";
+    font-size: 50px;
+    color: #F9D500;
+}
