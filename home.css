@@ -101,17 +101,20 @@ body {
     font-family: "Cooper Black";
     color: #fff;
     max-width: 800px;
-    font-size: 26px;
+    font-size: 24px;
 }
 
 /* Carrossel estética */
 
 
 .tituloEstetica {
-    padding-top: 70px;
+    margin-top: 70px;
     font-family: "Aachen";
-    font-size: 50px;
+    font-size: 40px;
     color: #F9D500;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 .estetica-carrossel {
@@ -128,10 +131,10 @@ body {
 .cards {
     display: flex;
     flex-flow: row nowrap;
-    gap: 40px;
+    gap: 30px;
 }
 
-.arrow-left,
+/* .arrow-left,
 .arrow-right {
     position: absolute;
     top: 0;
@@ -160,14 +163,12 @@ body {
 .arrow-left:hover,
 .arrow-right:hover {
     opacity: 1;
-}
+} */
 
 .imagemCard {
     width: 200px;
     height: 100px;
-    flex-shrink: 0;
-    justify-content: center;
-    border-radius: 40px;
+    border-radius: 20px;
 }
 
 .card1,
@@ -175,8 +176,133 @@ body {
 .card3,
 .card4,
 .card5 {
-    width: 1000px;
-    height: 500px;
+    width: 300px;
+    height: 400px;
     background-color: #fff;
     border-radius: 20px;
+    padding: 30px;
+}
+
+
+.cards h1 {
+    font-family: "Cooper Black";
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.cards p {
+    margin-top: 15px;
+    font-family: "Inter";
+    font-size: 14px;
+}
+
+/* Filmografia */
+
+
+.filmografia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tituloFilmografia {
+    margin-top: 70px;
+    font-family: "Aachen";
+    font-size: 40px;
+    color: #F9D500;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+.filmes {
+    width: 100%;
+    height: auto;
+}
+
+
+
+.cardFilmes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.cardFilmes img {
+    height: auto;
+    width: auto;
+    max-height: 90%;
+}
+
+.caes {
+    background-color: #C18D5D;
+}
+
+.caes img {
+    width: 550px;
+    height: 167px;
+}
+
+
+.pulpFiction {
+    background-color: #000;
+}
+
+.jackieBrown {
+    background-color: #003466;
+}
+
+.killBill {
+    background-color: #FFD401;
+}
+
+.killBill img {
+    width: 700px;
+    height: 179px;
+}
+
+.provaDeMorte {
+    background-color: #B13529;
+}
+
+.provaDeMorte img {
+    width: 1000px;
+    height: 195px;
+}
+
+.bastardos {
+    background-color: #FFFFFF;
+}
+
+.bastardos img {
+    width: 700px;
+    height: 222px;
+}
+
+.django {
+    background-color: #D9C07D;
+}
+
+.oitoOdiados {
+    background-color: #E9E8E6;
+}
+
+.eraUmaVez {
+    background-color: #E34633;
+}
+
+/* Footer */
+
+.conteudo-footer {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    font-family: "Cooper Black";
+    color: #F9D500;
+    font-size: 20px;
 }
