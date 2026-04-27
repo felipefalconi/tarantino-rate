@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.container-grid {
+    font-family: "Cooper Black";
+    width: 90vw;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    margin: 60px;
+}
+
+.menu a:hover {
+    color: #F9D500;
+    transition: 500ms;
+}
+
+.container-grid .titulo {
+    font-family: "Aachen";
+}
+
+.container-grid .titulo a {
+    color: #F9D500;
+    font-size: 38px;
+    text-decoration: none;
+}
+
+.conteudo-footer {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    font-family: "Cooper Black";
+    color: #F9D500;
+    font-size: 20px;
+}
