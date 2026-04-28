@@ -1,0 +1,96 @@
+body {
+    background-color: #000;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 30px;
+}
+
+.container-cadastro {
+    width: 700px;
+    height: 690px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 25px;
+    border-radius: 40px;
+}
+
+.conteudo-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tituloCadastro {
+    font-family: "Aachen";
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.inputsCadastro {
+    font-family: "Cooper Black";
+    font-size: 16px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.inputsCadastro input,
+.inputsCadastro select {
+    width: 500px;
+    height: 38px;
+    border-radius: 30px;
+    padding: 0 15px;
+    outline: none;
+    border: 2px solid #000;
+    font-family: "Inter";
+    font-size: 14px;
+}
+
+.inputsCadastro select {
+    cursor: pointer;
+}
+
+.botaoEnviar button {
+    width: 220px;
+    height: 45px;
+    background-color: #F9D500;
+    border: none;
+    border-radius: 40px;
+    font-family: "Cooper Black";
+    font-size: 24px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.botaoEnviar button:hover {
+    background-color: #ffe44c;
+}
+
+
+.mensagem {
+    margin-top: 15px;
+    font-family: "Aachen";
+    font-size: 15px;
+}
+
+.mensagem a {
+    color: #000;
+    text-decoration: none;
+}
+
+.mensagem span {
+    color: #A10F0F;
+    transition: 400ms;
+}
+
+.mensagem span:hover {
+    color: #FF2A2A;
+}
