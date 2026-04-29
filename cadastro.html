@@ -51,11 +51,11 @@
             </div>
             <div class="conteudo-cadastro">
                 <div class="inputsCadastro">
-                    Nome completo <br><input type="text" class="nome"> <br> <br>
-                    Username <br><input type="text" class="username"> <br> <br>
-                    Email <br><input type="text" class="email"> <br> <br>
-                    Senha <br><input type="text" class="senha"> <br> <br>
-                    Confirme sua senha <br><input type="text" class="confirmeSenha"> <br> <br>
+                    Nome completo <br><input type="text" class="nome" id="ipt_nome"> <br> <br>
+                    Username <br><input type="text" class="username" id="ipt_username"> <br> <br>
+                    Email <br><input type="email" class="email" id="ipt_email"> <br> <br>
+                    Senha <br><input type="text" class="senha" id="ipt_senha"> <br> <br>
+                    Confirme sua senha <br><input type="text" class="confirmeSenha" id="ipt_confirme_Senha"> <br> <br>
                     <label for="filmeFavorito">Filme favorito do Tarantino</label> <br>
                     <select name="" id="">
                         <option value="nãoAssistiu">Nenhum</option>
@@ -72,7 +72,7 @@
                     </select>
                 </div>
                 <div class="botaoEnviar">
-                    <button>Enviar</button>
+                    <button onclick="criarConta()">Enviar</button>
                 </div>
                 <div class="mensagem">
                     <a href="login.html">Já possui conta? <span>Entre</span></a>
@@ -92,3 +92,60 @@
 </footer>
 
 </html>
+
+
+<script>
+
+    let listaCaracteres = ["!", "@", "#", "$", "%", "&", "*", ".", "?", "/"]
+    let listaNumeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    function criarConta() {
+        let nome = ipt_nome.value
+        let email = ipt_email.value
+        let username = ipt_username.value
+        let senha = ipt_senha.value
+        let confirmeSenha = ipt_confirme_Senha.value
+
+        let vazio = nome == "" || email == "" || senha == "" || confirmeSenha == "" || username == ""
+
+        let termina_com = email.endsWith('.com')
+        let indice_arroba = email.indexOf('@')
+
+        let caracterEspecial = false;
+
+        for (i = 0; i < listaCaracteres.length; i++) {
+            if (senha.includes(listaCaracteres[i])) {
+                caracterEspecial = true
+                break
+            }
+        }
+
+        let numeroSenha = false
+
+        for (i = 0; i < listaNumeros.length; i++) {
+            if (senha.includes(listaNumeros[i])) {
+                numeroSenha = true
+                break
+            }
+        }
+
+        if (vazio) {
+            alert('Preencha todos os campos')
+        } else if (senha.length < 6) {
+            alert('A senha deve ter pelo menos 6 caracteres')
+        } else if (!caracterEspecial) {
+            alert('A senha precisa ter um caracter especial')
+        } else if (!numeroSenha) {
+            alert('A senha precisa ter um número')
+        }  else if (indice_arroba == -1 || !termina_com) {
+            alert('Email inválido')
+        } else if (senha != confirmeSenha) {
+            alert('As senhas não coincidem')
+        } else {
+            alert('Conta criada com sucesso!')
+        }
+
+
+    }
+
+</script>

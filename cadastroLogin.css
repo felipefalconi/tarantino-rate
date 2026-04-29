@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Cooper Black";
+    src: url(fontes/CooperFiveOpti-Black.otf);
+}
+
+@font-face {
+    font-family: "Aachen";
+    src: url(fontes/ufonts.com_aachen-bold-opentype.otf);
+}
+
 body {
     background-color: #000;
 }
@@ -12,7 +22,7 @@ body {
 
 .container-cadastro {
     width: 700px;
-    height: 690px;
+    height: 730px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
