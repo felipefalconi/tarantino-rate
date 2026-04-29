@@ -51,12 +51,12 @@
             </div>
             <div class="conteudo-cadastro">
                 <div class="inputsCadastro">
-                    Username <br><input type="text" class="username"> <br> <br>
-                    Email <br><input type="text" class="email"> <br> <br>
-                    Senha <br><input type="text" class="senha"> <br> <br>
+                    Username <br><input type="text" class="username"   id="ipt_username"> <br> <br>
+                    Email <br><input type="text" class="email"  id="ipt_email"> <br> <br>
+                    Senha <br><input type="text" class="senha" id="ipt_senha"> <br> <br>
                 </div>
                 <div class="botaoEnviar">
-                    <button>Enviar</button>
+                    <button onclick="entrarConta()">Enviar</button>
                 </div>
                 <div class="mensagem" style="margin-top: 20px;">
                     <a href="cadastro.html">Ainda não possui conta?<span> Cadastre-se</span></a>
@@ -76,3 +76,20 @@
 </footer>
 
 </html>
+
+
+<script>
+
+    function entrarConta() {
+        let username = ipt_username.value
+        let email = ipt_email.value
+        let senha = ipt_senha.value
+        let vazio = senha == "" || email == "" || senha == ""
+        
+        
+        if (vazio) {
+            alert('Preencha todos os campos')
+        }
+    }
+
+</script>
