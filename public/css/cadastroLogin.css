@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Cooper Black";
-    src: url(fontes/CooperFiveOpti-Black.otf);
+    src: url(../../fontes/CooperFiveOpti-Black.otf);
 }
 
 @font-face {
     font-family: "Aachen";
-    src: url(fontes/ufonts.com_aachen-bold-opentype.otf);
+    src: url(../../fontes/ufonts.com_aachen-bold-opentype.otf);
 }
 
 body {

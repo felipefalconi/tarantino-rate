@@ -62,3 +62,10 @@ INSERT INTO Filme (titulo, dtLancamento, duracaoMin, notaImdb, bilheteria, atorD
 ('Django Livre', '2012-12-25', 165, 8.5, 425368000.00, 'Jamie Foxx'),
 ('Os Oito Odiados', '2015-12-25', 168, 7.8, 155760000.00, 'Samuel L. Jackson'),
 ('Era Uma Vez em... Hollywood', '2019-07-26', 161, 7.6, 373358000.00, 'Leonardo DiCaprio');
+
+INSERT INTO Filme (titulo, dtLancamento, duracaoMin, notaImdb, bilheteria, atorDestaque) 
+VALUES ('Nenhum', '2026-05-01', 0, 0.0, 0.00, 'Novo Fã');
+
+SELECT * FROM Filme;
+
+SELECT * FROM Usuario;
