@@ -1,8 +1,13 @@
+@font-face {
+    font-family: "Aachen";
+    src: url(../../fontes/ufonts.com_aachen-bold-opentype.otf);
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: black;
 
 }
 
