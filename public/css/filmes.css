@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
     background-color: black;
+
 }
+
 
 .container-pulpfiction {
     width: 100%;
@@ -244,4 +246,52 @@
     font-family: 'Aachen';
     font-size: 20px;
     cursor: pointer;
+}
+
+.container-jackieBrown {
+    width: 100%;
+    padding: 30px;
+    background-color: #003466;
+}
+
+.container-killBill1 {
+    width: 100%;
+    padding: 30px;
+    background-color: #FFD401;
+}
+
+.container-killBill2 {
+    width: 100%;
+    padding: 30px;
+    background-color: #FFD401;
+}
+
+.container-aProvadeMorte {
+    width: 100%;
+    padding: 30px;
+    background-color: #B13529;
+}
+
+.container-bastardosInglorios {
+    width: 100%;
+    padding: 30px;
+    background-color: #FFFFFF;
+}
+
+.container-djangoLivre {
+    width: 100%;
+    padding: 30px;
+    background-color: #D9C07D;
+}
+
+.container-oitoOdiados {
+    width: 100%;
+    padding: 30px;
+    background-color: #E9E8E6;
+}
+
+.container-eraUmaVez {
+    width: 100%;
+    padding: 30px;
+    background-color: #E34633;
 }
