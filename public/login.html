@@ -81,15 +81,17 @@
 <script>
     function entrar() {
         let emailVar = ipt_email.value;
+        let usernameVar = ipt_username.value;
         let senhaVar = ipt_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if (emailVar == "" || senhaVar == "" || usernameVar == "") {
             alert('Todos os campos devem ser preenchidos');
             return false;
         }
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
+        console.log("FORM USERNAME: ", usernameVar);
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -98,7 +100,8 @@
             },
             body: JSON.stringify({
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                usernameServer: usernameVar
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")

@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.container-pulpfiction {
+    width: 100%;
+    padding: 30px;
+    background-color: black;
+
+}
+
+.inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.logoPulpFiction {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoPulpFiction img {
+    width: 820px;
+    height: auto;
+}
+
+
+.subtitulo {
+    color: #fff;
+    font-family: 'Cooper Black';
+    font-size: 24px;
+}
+
+.trailerPulpFiction {
+    position: absolute;
+    right: 80px;
+}
+
+
+.trailerPulpFiction button {
+    width: 250px;
+    height: 50px;
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Aachen';
+    border: 3px solid #fff;
+    background-color: transparent;
+    font-size: 16px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* Corpo */
+
+.corpo {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    gap: 120px;
+    max-width: 1500px;
+    /* Alterar se caso ficar muito grande em telas menores */
+}
+
+.sinopse {
+    margin: 30px;
+    max-width: 450px;
+}
+
+.sinopse h1 {
+    font-family: 'Cooper Black';
+    font-size: 36px;
+    margin-top: 15px;
+}
+
+.sinopse p {
+    margin-top: 10px;
+    font-family: 'Inter';
+    font-size: 22px;
+}
+
+.elenco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.elenco h1 {
+    font-family: 'Cooper Black';
+    margin-bottom: 25px;
+}
+
+.atores {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 30px;
+
+}
+
+.cardAtor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardAtor img {
+    width: 150px;
+    height: 150px;
+    border-radius: 25px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.cardAtor p {
+    font-family: 'Aachen';
+}
+
+/* FIM */
+
+.fim {
+    margin: 80px auto 50px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: #fff;
+    max-width: 1200px;
+    padding: 0 20px;
+    gap: 100px;
+}
+
+.fim h1 {
+    font-family: 'Cooper Black';
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.avaliacao,
+.bilheteria,
+.premios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.critica {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+}
+
+.rotten,
+.imdb,
+.metacritic {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.rotten img {
+    width: 55px;
+    height: auto;
+}
+
+.imdb img {
+    width: 65px;
+    height: auto;
+}
+
+.metacritic img {
+    width: 45px;
+    height: auto;
+}
+
+.critica p {
+    font-family: 'Aachen';
+    font-size: 30px;
+}
+
+.bilheteria p {
+    font-family: 'Inter';
+    font-size: 36px;
+    white-space: nowrap;
+}
+
+.trofeus {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.cannes,
+.oscar,
+.goldenglobe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+}
+
+.premios img {
+    width: auto;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.premios p {
+    font-family: 'Inter';
+    font-size: 14px;
+}
+
+.botaoFinal {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+
+.botaoFinal button {
+    width: 280px;
+    height: 60px;
+    color: #fff;
+    border: 2px solid #fff;
+    font-family: 'Aachen';
+    font-size: 20px;
+    cursor: pointer;
+}
