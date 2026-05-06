@@ -33,8 +33,97 @@
     flex-direction: column;
 }
 
+.logoJackieBrown {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoKillBill1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoKillBill2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoaProvadeMorte {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoBastardosInglorios {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoDjangoLivre {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoOitoOdiados {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoEraUmaVez {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .logoPulpFiction img {
     width: 820px;
+    height: auto;
+}
+
+
+.logoJackieBrown img{
+    width: 400px;
+    height: auto;
+}
+
+.logoKillBill1 img {
+    width: 800px;
+    height: auto;
+}
+
+.logoKillBill2 img {
+    width: 800px;
+    height: auto;
+}
+
+.logoaProvadeMorte img {
+    width: 1100px;
+    height: auto;
+}
+
+.logoBastardosInglorios img {
+    width: 750px;
+    height: auto;
+}
+
+.logoDjangoLivre img {
+    width: 460px;
+    height: auto;
+}
+
+.logoOitoOdiados img {
+    width: 1200px;
+    height: auto;
+}
+
+.logoEraUmaVez img {
+    width: 774px;
     height: auto;
 }
 
@@ -76,15 +165,23 @@
     /* Alterar se caso ficar muito grande em telas menores */
 }
 
+.corpoCorPreta {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    color: #000;
+    gap: 120px;
+    max-width: 1500px;
+}
+
 .sinopse {
-    margin: 30px;
     max-width: 450px;
 }
 
 .sinopse h1 {
     font-family: 'Cooper Black';
     font-size: 36px;
-    margin-top: 15px;
+    margin-bottom: 25px;
 }
 
 .sinopse p {
@@ -118,6 +215,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .cardAtor img {
@@ -251,6 +349,8 @@
     font-family: 'Aachen';
     font-size: 20px;
     cursor: pointer;
+    background-color: transparent;
+
 }
 
 .container-jackieBrown {
@@ -299,4 +399,43 @@
     width: 100%;
     padding: 30px;
     background-color: #E34633;
+}
+
+.botaoFinalPreto {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+
+.botaoFinalPreto button {
+    width: 280px;
+    height: 60px;
+    color: #000;
+    border: 2px solid #000;
+    font-family: 'Aachen';
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+
+.fimCorPreta {
+    margin: 80px auto 50px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: #000;
+    max-width: 1200px;
+    padding: 0 20px;
+    gap: 100px;
+}
+
+.fimCorPreta h1 {
+    font-family: 'Cooper Black';
+    margin-bottom: 20px;
+    text-align: center;
 }
