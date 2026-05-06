@@ -14,7 +14,7 @@
 
 .container-pulpfiction {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: black;
 
 }
@@ -87,7 +87,7 @@
 }
 
 
-.logoJackieBrown img{
+.logoJackieBrown img {
     width: 400px;
     height: auto;
 }
@@ -353,51 +353,58 @@
 
 }
 
+.botaoFinal button:hover {
+    background-color: #FFD401;
+    color: #000;
+    border-color: #FFD401;
+    transition: 400ms;
+}
+
 .container-jackieBrown {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: #003466;
 }
 
 .container-killBill1 {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: #FFD401;
 }
 
 .container-killBill2 {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: #FFD401;
 }
 
 .container-aProvadeMorte {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: #B13529;
 }
 
 .container-bastardosInglorios {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: #FFFFFF;
 }
 
 .container-djangoLivre {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: #D9C07D;
 }
 
 .container-oitoOdiados {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: #E9E8E6;
 }
 
 .container-eraUmaVez {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     background-color: #E34633;
 }
 
@@ -421,6 +428,12 @@
     background-color: transparent;
 }
 
+.botaoFinalPreto button:hover {
+    background-color: #FFD401;
+    color: #fff;
+    border-color: #FFD401;
+    transition: 400ms;
+}
 
 .fimCorPreta {
     margin: 80px auto 50px auto;

@@ -261,6 +261,14 @@ body {
     width: 700px;
 }
 
+.killBill2 {
+    background-color: #FFD401;
+}
+
+.killBill2 img {
+    width: 700px;
+}
+
 .provaDeMorte {
     background-color: #B13529;
 }
