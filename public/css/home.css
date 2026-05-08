@@ -25,12 +25,12 @@ body {
     width: 100%;
     background-image: url('../img/Banner\ Tarantino.png');
     background-size: cover;
-    min-height: 110vh
+    min-height: 100vh
 }
 
 .container-grid {
     font-family: "Cooper Black";
-    width: 90vw;
+    width: 100vw;
     max-width: 1800px;
     margin: 0 auto;
 }
