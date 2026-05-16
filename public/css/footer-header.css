@@ -19,7 +19,7 @@ nav {
 
 .container-grid {
     font-family: "Cooper Black";
-    width: 100vw;
+    width: 100%;
     max-width: 1800px;
     margin: 0 auto;
 }
@@ -54,5 +54,5 @@ nav {
     color: #F9D500;
     font-size: 20px;
     background-color: black;
-    width: 100vw;
+    width: 100%;
 }
