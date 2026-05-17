@@ -33,7 +33,7 @@ CREATE TABLE Avaliacao (
     destaqueMedalha VARCHAR(50),
     FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
     FOREIGN KEY (fkFilme) REFERENCES Filme(idFilme)
-);
+); 
 
 CREATE TABLE PontuacaoQuiz (
     idPontuacao INT PRIMARY KEY AUTO_INCREMENT,

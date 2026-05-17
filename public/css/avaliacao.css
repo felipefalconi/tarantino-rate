@@ -40,12 +40,46 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    flex-direction: column;
 }
 
 .avaliacaoGeral_avaliacao h1 {
     color: #fff;
     font-family: 'Aachen';
     font-size: 25px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.avaliacao-icone {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.avaliacao-icone input[type="radio"] {
+    display: none;
+}
+
+.avaliacao-icone label svg {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.avaliacao-icone label svg path {
+    fill: transparent;
+    stroke: #F9D500;
+    stroke-width: 2px;
+    transition: 0.2s ease;
+}
+
+.avaliacao-icone input[type="radio"]:checked~label svg path,
+.avaliacao-icone label:hover svg path,
+.avaliacao-icone label:hover~label svg path {
+    fill: #F9D500;
 }
 
 .dialogoTrilha {
@@ -63,11 +97,105 @@
     text-align: center;
 }
 
+.Dialogo-icone {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.Dialogo-icone input[type="radio"] {
+    display: none;
+}
+
+.Dialogo-icone label svg {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.Dialogo-icone label svg path {
+    fill: transparent;
+    stroke: #FFFFFF;
+    stroke-width: 4px;
+    transition: 0.2s ease;
+}
+
+.Dialogo-icone input[type="radio"]:checked~label svg path,
+.Dialogo-icone label:hover svg path,
+.Dialogo-icone label:hover~label svg path {
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+.sangue-icone {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.sangue-icone input[type="radio"] {
+    display: none;
+}
+
+.sangue-icone label svg {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.sangue-icone label svg path {
+    fill: transparent;
+    stroke: #8B0000;
+    stroke-width: 3px;
+    transition: 0.2s ease;
+}
+
+.sangue-icone input[type="radio"]:checked~label svg path,
+.sangue-icone label:hover svg path,
+.sangue-icone label:hover~label svg path {
+    fill: #8B0000;
+}
+
 .trilha_avaliacao h1 {
     color: #fff;
     font-family: 'Aachen';
     font-size: 20px;
     text-align: center;
+}
+
+.Trilha-icone {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.Trilha-icone input[type="radio"] {
+    display: none;
+}
+
+.Trilha-icone label svg {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.Trilha-icone label svg path {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 3px;
+    transition: 0.2s ease;
+}
+
+.Trilha-icone input[type="radio"]:checked~label svg path,
+.Trilha-icone label:hover svg path,
+.Trilha-icone label:hover~label svg path {
+    fill: #fff;
 }
 
 .sangueTensao {
@@ -85,11 +213,73 @@
     text-align: center;
 }
 
+.sangue-icone {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.sangue-icone input[type="radio"] {
+    display: none;
+}
+
+.sangue-icone label svg {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.sangue-icone label svg path {
+    fill: transparent;
+    stroke: #8B0000;
+    stroke-width: 3px;
+    transition: 0.2s ease;
+}
+
+.sangue-icone input[type="radio"]:checked~label svg path,
+.sangue-icone label:hover svg path,
+.sangue-icone label:hover~label svg path {
+    fill: #8B0000;
+}
+
 .tensao_avaliacao h1 {
     color: #fff;
     font-family: 'Aachen';
     font-size: 20px;
     text-align: center;
+}
+
+.tensao-icone {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.tensão-icone input[type="radio"] {
+    display: none;
+}
+
+.tensão-icone label svg {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.tensão-icone label svg path {
+    fill: transparent;
+    stroke: #8B0000;
+    stroke-width: 2px;
+    transition: 0.2s ease;
+}
+
+.tensão-icone input[type="radio"]:checked~label svg path,
+.tensão-icone label:hover svg path,
+.tensão-icone label:hover~label svg path {
+    fill: #8B0000;
 }
 
 .destaqueEmocao {
@@ -112,9 +302,4 @@
     font-family: 'Aachen';
     font-size: 20px;
     text-align: center;
-}
-
-.nivelSangue {
-    display: flex;
-    flex-direction: row;
 }
