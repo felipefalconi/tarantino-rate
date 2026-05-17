@@ -17,7 +17,7 @@
 </head>
 
 
-<body>
+<body onload="carregar()">
     <header>
         <div class="banner">
 
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="menu">
-                        <a href="cadastro.html">Cadastro</a>
+                        <a href="cadastro.html" id="nomeUsuario">Cadastro</a>
                         <a href="login.html">Login</a>
                     </div>
 
@@ -216,3 +216,17 @@
 </footer>
 
 </html>
+
+<script>
+    const nome = sessionStorage.getItem('USERNAME_USUARIO');
+
+    function carregar() {
+        const menuNome = document.getElementById('nomeUsuario')
+
+        if(nome != null) {
+            menuNome.innerHTML = nome
+        } else {
+            menuNome.innerHTML = "Cadastro"
+        }
+    }
+</script>
