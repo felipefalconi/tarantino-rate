@@ -150,7 +150,10 @@
 }
 
 
-.trailerPulpFiction button {
+.trailerPulpFiction a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 250px;
     height: 50px;
     border-radius: 50px;
@@ -161,6 +164,14 @@
     font-size: 16px;
     gap: 10px;
     cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.2 ease;
+}
+
+.trailerPulpFiction a:hover {
+    background-color: #fff;
+    color: #000;              
 }
 
 /* Corpo */

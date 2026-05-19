@@ -274,26 +274,26 @@ dialog::backdrop {
     margin-top: 10px;
 }
 
-.tensão-icone input[type="radio"] {
+.tensao-icone input[type="radio"] {
     display: none;
 }
 
-.tensão-icone label svg {
+.tensao-icone label svg {
     width: 40px;
     height: 40px;
     cursor: pointer;
 }
 
-.tensão-icone label svg path {
+.tensao-icone label svg path {
     fill: transparent;
     stroke: #8B0000;
     stroke-width: 2px;
     transition: 0.2s ease;
 }
 
-.tensão-icone input[type="radio"]:checked~label svg path,
-.tensão-icone label:hover svg path,
-.tensão-icone label:hover~label svg path {
+.tensao-icone input[type="radio"]:checked~label svg path,
+.tensao-icone label:hover svg path,
+.tensao-icone label:hover~label svg path {
     fill: #8B0000;
 }
 
@@ -321,7 +321,8 @@ dialog::backdrop {
 
 .destaqueEmocao input,
 .destaqueEmocao select {
-    width: 230;
+
+    width: 230px;
     height: 35px;
     border-radius: 30px;
     padding: 0 15px;

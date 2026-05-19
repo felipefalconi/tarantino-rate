@@ -35,16 +35,6 @@ CREATE TABLE Avaliacao (
     FOREIGN KEY (fkFilme) REFERENCES Filme(idFilme)
 ); 
 
-CREATE TABLE PontuacaoQuiz (
-    idPontuacao INT PRIMARY KEY AUTO_INCREMENT,
-    fkUsuario INT,
-    fkFilme INT,
-    qtdAcertos INT,         
-    dataHora DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
-    FOREIGN KEY (fkFilme) REFERENCES Filme(idFilme)
-);
-
 ALTER TABLE Usuario ADD COLUMN fkFilmeFavorito INT;
 
 ALTER TABLE Usuario ADD CONSTRAINT fk_filme_favorito 
@@ -62,3 +52,7 @@ INSERT INTO Filme (titulo, dtLancamento, duracaoMin, notaImdb, bilheteria, atorD
 ('Django Livre', '2012-12-25', 165, 8.5, 425368000.00, 'Jamie Foxx'),
 ('Os Oito Odiados', '2015-12-25', 168, 7.8, 155760000.00, 'Samuel L. Jackson'),
 ('Era Uma Vez em... Hollywood', '2019-07-26', 161, 7.6, 373358000.00, 'Leonardo DiCaprio');
+
+INSERT INTO Filme (titulo, dtLancamento, duracaoMin, notaImdb, bilheteria, atorDestaque) VALUES
+('Nenhum', NULL, 0, 0.0, 0.00, 'Nenhum');
+
