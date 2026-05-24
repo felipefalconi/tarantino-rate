@@ -1,0 +1,174 @@
+@font-face {
+    font-family: "Cooper Black";
+    src: url(fontes/CooperFiveOpti-Black.otf);
+}
+
+@font-face {
+    font-family: "Aachen";
+    src: url(fontes/ufonts.com_aachen-bold-opentype.otf);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 40px;
+}
+
+.container-inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Aachen';
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.botao-voltar {
+    width: 120px;
+    height: 35px;
+    border-radius: 10px;
+    font-family: "Inter";
+    background-color: #F9D500;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.botao-voltar:hover {
+    background-color: #fff;
+    transition: 300ms;
+}
+
+.container-kpis {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.kpi {
+    background-color: #2F2A2A;
+    border-radius: 12px;
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.kpi strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.kpi span {
+    font-family: 'Inter';
+    font-size: 22px;
+    font-weight: bold;
+    color: #F9D500;
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.kpi-nivel-fa {
+    background-color: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.kpi-nivel-fa strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.container-barraProgresso {
+    background-color: #ffffff;
+    border-radius: 25px;
+    height: 38px;
+    width: 250px;
+    overflow: hidden;
+    display: flex;
+}
+
+.barraProgresso {
+    background-color: #F9D500;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.8s ease-in-out;
+}
+
+#textoProgresso {
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.barra-fundo {
+    background-color: #ffffff;
+    border-radius: 20px;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.barra-preenchimento {
+    background-color: #F9D500;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-weight: bold;
+}
+
+.container-graficos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.6fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+}
+
+.grafico {
+    background-color: #2b2b2b;
+    border-radius: 12px;
+    padding: 20px;
+    height: 280px;
+    position: relative;
+}
+
+.rankingComunidade {
+    background-color: #2F2A2A;
+    border-radius: 12px;
+    padding: 40px;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.rankingComunidade strong {
+    font-family: "Inter";
+}
