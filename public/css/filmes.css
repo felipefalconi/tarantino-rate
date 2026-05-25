@@ -171,7 +171,7 @@
 
 .trailerPulpFiction a:hover {
     background-color: #fff;
-    color: #000;              
+    color: #000;
 }
 
 /* Corpo */
@@ -348,9 +348,22 @@
     margin-bottom: 15px;
 }
 
+
 .premios p {
     font-family: 'Inter';
     font-size: 14px;
+}
+
+.premiosCaes img {
+    width: auto;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.premiosCaes p {
+    font-family: 'Inter';
+    font-size: 16px;
 }
 
 .botaoFinal {
@@ -386,7 +399,6 @@
     padding: 50px;
     background-color: #C18D5D;
 }
-
 
 .container-jackieBrown {
     width: 100%;

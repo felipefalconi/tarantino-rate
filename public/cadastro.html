@@ -30,6 +30,7 @@
                 </div>
 
                 <div class="menu">
+                    <a href="dashboard/dashboard.html">Dashboard</a>
                     <a href="cadastro.html">Cadastro</a>
                     <a href="login.html">Login</a>
                 </div>
@@ -55,7 +56,8 @@
                     Username <br><input type="text" class="username" id="ipt_username"> <br> <br>
                     Email <br><input type="email" class="email" id="ipt_email"> <br> <br>
                     Senha <br><input type="text" class="password" id="ipt_senha"> <br> <br>
-                    Confirme sua senha <br><input type="password" class="confirmeSenha" id="ipt_confirme_Senha"> <br> <br>
+                    Confirme sua senha <br><input type="password" class="confirmeSenha" id="ipt_confirme_Senha"> <br>
+                    <br>
                     <label for="filmeFavorito">Filme favorito do Tarantino</label> <br>
                     <select name="" id="sel_filmeFavorito">
                         <option value="11">Nenhum</option>
@@ -137,7 +139,7 @@
             alert('A senha precisa ter um caracter especial')
         } else if (!numeroSenha) {
             alert('A senha precisa ter um número')
-        }  else if (indice_arroba == -1 || !termina_com) {
+        } else if (indice_arroba == -1 || !termina_com) {
             alert('Email inválido')
         } else if (senha != confirmeSenha) {
             alert('As senhas não coincidem')
@@ -157,30 +159,30 @@
                     filmeFavoritoServer: filmeFavorito
                 }),
             })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-                if (resposta.ok) {
+                    if (resposta.ok) {
 
 
-                    alert('Conta criada com sucesso! Redirecionando para o login...');
-                    
-                    setTimeout(() => {
-                        window.location = "login.html";
-                    }, 2000);
-                    
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                alert("Erro ao cadastrar. Verifique o console.");
-            });
+                        alert('Conta criada com sucesso! Redirecionando para o login...');
+
+                        setTimeout(() => {
+                            window.location = "login.html";
+                        }, 2000);
+
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                    alert("Erro ao cadastrar. Verifique o console.");
+                });
 
             return false;
         }
-        }
+    }
 
 
 

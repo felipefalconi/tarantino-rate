@@ -8,12 +8,19 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+     <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cooper+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
-<body onload="carregar()">
+<body onload="carregar(); carregarNome()">
 
     <div class="container-inicio">
-        <h1>Olá, usuário bem vindo a Dashboard!</h1>
+        <h1 id="nomeUsuario">Olá, usuário bem vindo a Dashboard!</h1>
 
         <button class="botao-voltar" onclick="window.location.href='../filmes.html'">Voltar</button>
 
@@ -41,7 +48,7 @@
         </div>
 
         <div class="kpi">
-            <strong>Quantidade de avaliações</strong>
+            <strong>Quantidade de avaliações (Geral)</strong>
             <span id="qtdAvaliacoes">50</span>
         </div>
 
@@ -68,16 +75,14 @@
         </div>
         <div class="grafico">
             <canvas id="graficoMaiorDestaque"></canvas>
-        </div>
-        <div class="rankingComunidade">
-            <strong>Ranking da Comunidade</strong>
-        </div>
+        </div> 
+        <div class="grafico">
+            <canvas id="graficoEmocoesFrequentes"></canvas>
+        </div>  
         <div class="grafico">
             <canvas id="graficoComparativoComunidade"></canvas>
         </div>
-        <div class="grafico">
-            <canvas id="graficoEmocoesFrequentes"></canvas>
-        </div>
+        
 
     </div>
 
@@ -91,6 +96,17 @@
 
     let chartExistir;
 
+    const nome = sessionStorage.getItem('USERNAME_USUARIO');
+
+    function carregarNome() {
+        const menuNome = document.getElementById('nomeUsuario')
+
+        if (nome != null) {
+            menuNome.innerHTML = `Olá, ${nome} bem vindo a Dashboard!`
+        } else {
+            menuNome.innerHTML = "Olá, usuário bem vindo a Dashboard!"
+        }
+    }
 
     function carregar() {
         buscarNivelFa()
@@ -299,7 +315,7 @@
                 }
             })
             .catch(function (erro) {
-                console.error(`Erro na obtenção do gráfico de ficha técnico: ${erro.message}`);
+                console.error(`Erro na obtenção do gráfico de ficha técnica: ${erro.message}`);
             });
     }
 
@@ -314,8 +330,8 @@
                         let dadosBanco = [];
 
                         const cores = {
-                            'Direção': '#003466', 'Roteiro': '#E34633', 'Atuação': '#B13529',
-                            'Trilha': '#000000', 'Fotografia': '#F9D500', 'Ação': '#D9C07D'
+                            'Direção': '#003466', 'Roteiro': '#E34633', 'Atuações': '#B13529',
+                            'Trilha': '#D9C07D', 'Fotografia': '#F9D500', 'Ação': '#000000'
                         };
                         let coresGrafico = [];
 
@@ -331,7 +347,9 @@
                             data: {
                                 labels: labelsBanco,
                                 datasets: [{
-                                    data: dadosBanco, borderWidth: 0, backgroundColor: coresGrafico
+                                    data: dadosBanco, 
+                                    borderWidth: 0, 
+                                    backgroundColor: coresGrafico
                                 }]
                             },
                             options: {
@@ -402,8 +420,12 @@
                                     title: { 
                                     display: true, 
                                     text: 'Comparativo com a comunidade', 
-                                    color: '#fff' },
-                                    legend: { labels: { color: '#fff' } }
+                                    color: '#fff',
+                                    font: { size: 16 }
+                                },
+                                    legend: { 
+                                    labels: { color: '#fff' } 
+                                    }
                                 },
                                 scales: {
                                     x: { ticks: { color: "#ffffff" } },
@@ -426,9 +448,9 @@
                         let dadosBanco = [];
 
                         const coresEmocoes = {
-                            'Tensão': '#000000', 'Medo': '#FFFFFF', 'Tristeza': '#E34633',
-                            'Raiva': '#B13529', 'Alegria': '#F9D500'
-                        };
+                            'Medo': '#000000', 'Nojo': '#FFFFFF', 'Tristeza': '#E34633',
+                            'Raiva': '#B13529', 'Alegria': '#F9D500', 'Ansiedade': '#D9C07D', 'Tédio': '#003466'
+                        };  
                         let coresGrafico = [];
 
                         for (let i = 0; i < resposta.length; i++) {
@@ -453,9 +475,12 @@
                                 responsive: true,
                                 maintainAspectRatio: false,
                                 plugins: {
-                                    title: { display: true, 
+                                    title: { 
+                                    display: true, 
                                     text: 'Emoções mais frequentes', 
-                                    color: '#fff' },
+                                    color: '#fff',
+                                    font: { size: 16 }
+                                    },
                                     legend: { position: 'left', 
                                     labels: { color: '#fff' } }
                                 }

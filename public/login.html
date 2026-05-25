@@ -30,6 +30,7 @@
                 </div>
 
                 <div class="menu">
+                    <a href="dashboard/dashboard.html">Dashboard</a>
                     <a href="cadastro.html">Cadastro</a>
                     <a href="login.html">Login</a>
                 </div>
@@ -51,8 +52,8 @@
             </div>
             <div class="conteudo-cadastro">
                 <div class="inputsCadastro">
-                    Username <br><input type="text" class="username"   id="ipt_username"> <br> <br>
-                    Email <br><input type="text" class="email"  id="ipt_email"> <br> <br>
+                    Username <br><input type="text" class="username" id="ipt_username"> <br> <br>
+                    Email <br><input type="text" class="email" id="ipt_email"> <br> <br>
                     Senha <br><input type="text" class="senha" id="ipt_senha"> <br> <br>
                 </div>
                 <div class="botaoEnviar">
@@ -112,25 +113,25 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    
+
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.ID_USUARIO = json.id; 
-                    sessionStorage.USERNAME_USUARIO = json.username; 
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.USERNAME_USUARIO = json.username;
 
                     alert('Login realizado! Direcionando para tela inicial!');
 
                     setTimeout(function () {
                         window.location = "home.html";
-                    }, 1000); 
+                    }, 1000);
 
                 });
 
             } else {
                 console.log("Houve um erro ao tentar realizar o login!");
-                
+
                 resposta.text().then(texto => {
                     console.error(texto);
-                    alert("Email e/ou senha inválidos. Tente novamente!"); 
+                    alert("Email e/ou senha inválidos. Tente novamente!");
                 });
             }
 
