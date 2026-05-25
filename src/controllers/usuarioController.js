@@ -45,14 +45,12 @@ function autenticar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var username = req.body.usernameServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var fkFilmeFavorito = req.body.filmeFavoritoServer;
 
-    // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (username == undefined) {
@@ -65,7 +63,6 @@ function cadastrar(req, res) {
         res.status(400).send("Seu filme favorito está undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, username, email, senha, fkFilmeFavorito)
             .then(
                 function (resultado) {

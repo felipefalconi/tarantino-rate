@@ -10,12 +10,12 @@
 
 </head>
 
-<body>
+<body onload="carregar()">
 
     <div class="container-inicio">
         <h1>Olá, usuário bem vindo a Dashboard!</h1>
 
-        <button class="botao-voltar" onclick="window.location.href='../filmes.html'" >Voltar</button>
+        <button class="botao-voltar" onclick="window.location.href='../filmes.html'">Voltar</button>
 
     </div>
 
@@ -32,23 +32,38 @@
 
         <div class="kpi">
             <strong>Filme de maior nota</strong>
-            <span>Bastardos Inglórios</span>
+            <span id="filmeMaiorNota">Carregando...</span>
         </div>
 
         <div class="kpi">
             <strong>Emoção predominante</strong>
-            <span>Tensão</span>
+            <span id="emocaoPredominante">Tensão</span>
         </div>
 
         <div class="kpi">
             <strong>Quantidade de avaliações</strong>
-            <span>50</span>
+            <span id="qtdAvaliacoes">50</span>
         </div>
 
     </div>
 
     <div class="container-graficos">
         <div class="grafico">
+            <div class="grafico-select">
+                <select id="selectFichaTecnica" onchange="buscarFichaTecnica()">
+                    <option value="0">Média Geral</option>
+                    <option value="1">Cães de Aluguel</option>
+                    <option value="2">Pulp Fiction</option>
+                    <option value="3">Jackie Brown</option>
+                    <option value="4">Kill Bill: Vol. 1</option>
+                    <option value="5">Kill Bill: Vol. 2</option>
+                    <option value="6">À Prova de Morte</option>
+                    <option value="7">Bastardos Inglórios</option>
+                    <option value="8">Django Livre</option>
+                    <option value="9">Os Oito Odiados</option>
+                    <option value="10">Era Uma Vez em... Hollywood</option>
+                </select>
+            </div>
             <canvas id="graficoFichaTecnica"></canvas>
         </div>
         <div class="grafico">
@@ -74,147 +89,383 @@
 
 <script>
 
-    const graficoFichaTecnica = document.getElementById('graficoFichaTecnica');
+    let chartExistir;
 
-    new Chart(graficoFichaTecnica, {
-        type: 'radar',
-        data: {
-            labels: ['Sangue', 'Tensão', 'Diálogos', 'Trilha Sonora'],
-            datasets: [{
-                label: 'Média do Filme',
-                data: [3, 5, 4, 3],
-                backgroundColor: 'rgba(249, 213, 0, 0.4)',
-                borderColor: '#F9D500',
-                pointBackgroundColor: '#F9D500',
-                pointBorderColor: '#fff',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Ficha Técnica',
-                    color: '#ffffff',
-                    font: { size: 16 }
-                },
-                legend: {
-                    labels: {
-                        color: '#ffffff',
-                        font: { family: 'Inter', size: 14 }
-                    }
+
+    function carregar() {
+        buscarNivelFa()
+        buscarKpiMaiorNota()
+        buscarKpiEmocaoPredominante()
+        buscarKpiQtdAvaliacoes()
+
+        buscarFichaTecnica()
+        buscarDestaqueFilme()
+        buscarEmocoesFrequentes()
+        buscarComparativo()
+    }
+
+    function buscarNivelFa() {
+
+        fetch("/dashboard/kpi/nivel-fa", { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+
+                        console.log(`Dados KPI Nivel Fã: ${JSON.stringify(resposta)}`);
+
+                        let nivelDoBanco = resposta[0].nivel_de_fa;
+
+                        document.getElementById('textoProgresso').innerHTML = nivelDoBanco + "%"
+                        document.getElementById('barraProgresso').style.width = nivelDoBanco + "%"
+
+                    });
+                } else {
+                    console.error("Erro ao buscar KPI Nivel de fã.");
                 }
-            },
-            scales: {
-                r: {
-                    min: 0,
-                    max: 5,
+            })
+            .catch(function (erro) {
+                console.error(`Erro na obtenção da KPI de nivel do fã: ${erro.message}`);
+            });
 
-                    angleLines: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.2)'
-                    },
-                    pointLabels: {
-                        color: '#e0e0e0',
-                        font: { family: 'Inter', size: 13 }
-                    },
-                    ticks: {
-                        color: '#ffffff',
-                        backdropColor: 'transparent',
-                        stepSize: 1
-                    }
+    }
+
+    function buscarKpiMaiorNota() {
+        fetch("/dashboard/kpi/maior-nota", { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+
+                        console.log(`Dados KPI Maior nota: ${JSON.stringify(resposta)}`);
+
+                        let filmeFavorito = resposta[0].titulo;
+
+                        document.getElementById('filmeMaiorNota').innerHTML = filmeFavorito
+
+                    });
+                } else {
+                    console.error("Erro ao buscar KPI de Maior Nota.");
+                    document.getElementById('filmeMaiorNota').innerHTML = "Sem avaliações";
                 }
-            }
-        }
-    });
+            })
+            .catch(function (erro) {
+                console.error(`Erro na obtenção da KPI de maior Nota: ${erro.message}`);
+            });
+    }
 
-    const graficoMaiorDestaque = document.getElementById('graficoMaiorDestaque');
+    function buscarKpiEmocaoPredominante() {
+        fetch("/dashboard/kpi/emocao-predominante", { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
 
-    new Chart(graficoMaiorDestaque, {
-        type: 'doughnut',
-        data: {
-            labels: ['Direção', 'Roteiro', 'Atuação', 'Trilha', 'Fotografia', 'Ação'],
-            datasets: [{
-                data: [35, 20, 15, 10, 20, 5],
-                borderWidth: 0,
-                backgroundColor: ['#003466', '#E34633', '#B13529', '#000000', '#F9D500', '#2980b9'],
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Veredito Técnico',
-                    color: '#ffffff',
-                    font: { size: 16 }
-                },
-                legend: {
-                    position: 'left',
-                    labels: { color: "#ffffff" }
+                        console.log(`Dados KPI Emoção predominante: ${JSON.stringify(resposta)}`);
+
+                        let emocaoPredominante = resposta[0].emocaoDominante;
+
+                        document.getElementById('emocaoPredominante').innerHTML = emocaoPredominante
+
+                    });
+                } else {
+                    console.error("Erro ao buscar KPI de Emoção Predominante.");
+                    document.getElementById('emocaoPredominante').innerHTML = "Sem dados";
                 }
-            }
-        }
-    });
+            })
+            .catch(function (erro) {
+                console.error(`Erro na obtenção da KPI de Emoção: ${erro.message}`);
+            });
+    }
 
-    const graficoComparativoComunidade = document.getElementById('graficoComparativoComunidade');
+    function buscarKpiQtdAvaliacoes() {
+        fetch("/dashboard/kpi/qtd-avaliacoes", { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
 
-    new Chart(graficoComparativoComunidade, {
-        type: 'bar',
-        data: {
-            labels: ['Pulp Fiction', 'Kill Bill', 'Bastardos', 'Django'],
-            datasets: [
-                {
-                    label: 'Você',
-                    data: [5, 4, 5, 3],
-                    backgroundColor: '#f1c40f'
-                },
-                {
-                    label: 'Comunidade',
-                    data: [4.5, 4.2, 4.8, 4.0],
-                    backgroundColor: '#000'
+                        console.log(`Dados KPI quantidade de avaliações: ${JSON.stringify(resposta)}`);
+
+                        let qtdAvaliacoes = resposta[0].total_avaliacoes;
+
+                        document.getElementById('qtdAvaliacoes').innerHTML = qtdAvaliacoes
+
+                    });
+                } else {
+                    console.error("Erro ao buscar KPI de Emoção Predominante.");
+                    document.getElementById('qtdAvaliacoes').innerHTML = "0";
                 }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: { display: true, text: 'Comparativo com a comunidade', color: '#fff' },
-                legend: { labels: { color: '#fff' } }
-            },
-            scales: {
-                x: { ticks: { color: "#ffffff" } },
-                y: { ticks: { color: "#ffffff" }, min: 0, max: 5 }
-            }
-        }
-    });
+            })
+            .catch(function (erro) {
+                console.error(`Erro na obtenção da KPI de quantidade: ${erro.message}`);
+            });
+    }
 
-    const graficoEmocoesFrequentes = document.getElementById('graficoEmocoesFrequentes');
 
-    new Chart(graficoEmocoesFrequentes, {
-        type: 'pie',
-        data: {
-            labels: ['Tensão', 'Medo', 'Tristeza', 'Raiva', 'Alegria'],
-            datasets: [{
-                data: [40, 15, 10, 25, 10, 5, 20],
-                backgroundColor: ['#f1c40f', '#2980b9', '#e74c3c', '#c0392b', '#27ae60', '#D9C07D', '#FFFFFF'],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: { display: true, text: 'Emoções mais frequentes', color: '#fff' },
-                legend: { position: 'left', labels: { color: '#fff' } }
-            }
+    function buscarFichaTecnica() {
+        let idFilme = document.getElementById("selectFichaTecnica").value;
+
+        let rotaDados;
+
+        if (idFilme == "0") {
+            rotaDados = "/dashboard/grafico/ficha-tecnica";
+        } else {
+            rotaDados = `/dashboard/grafico/ficha-tecnica/${idFilme}`;
         }
-    });
+
+
+        fetch(rotaDados, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+
+                        console.log(`Dados Ficha técnica: ${JSON.stringify(resposta)}`);
+
+                        let registro = resposta[0]
+                        let dadosGrafico = [0, 0, 0, 0]
+
+                        if (resposta.length > 0) {
+                            let registro = resposta[0];
+                            dadosGrafico = [
+                                registro.media_sangue || 0,
+                                registro.media_tensao || 0,
+                                registro.media_dialogo || 0,
+                                registro.media_trilha || 0
+                            ];
+                        }
+
+                        const graficoFichaTecnica = document.getElementById('graficoFichaTecnica');
+
+
+                        if (chartExistir != undefined) {
+                            chartExistir.destroy()
+                        }
+
+                        chartExistir = new Chart(graficoFichaTecnica, {
+                            type: 'radar',
+                            data: {
+                                labels: ['Sangue', 'Tensão', 'Diálogos', 'Trilha Sonora'],
+                                datasets: [{
+                                    label: 'Média do Filme',
+                                    data: dadosGrafico,
+                                    backgroundColor: 'rgba(249, 213, 0, 0.4)',
+                                    borderColor: '#F9D500',
+                                    pointBackgroundColor: '#F9D500',
+                                    pointBorderColor: '#fff',
+                                    borderWidth: 2
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    title: {
+                                        display: true,
+                                        text: 'Ficha Técnica',
+                                        color: '#ffffff',
+                                        font: { size: 16 }
+                                    },
+                                    legend: {
+                                        labels: {
+                                            color: '#ffffff',
+                                            font: { family: 'Inter', size: 14 }
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    r: {
+                                        min: 0,
+                                        max: 5,
+
+                                        angleLines: {
+                                            color: 'rgba(255, 255, 255, 0.1)'
+                                        },
+                                        grid: {
+                                            color: 'rgba(255, 255, 255, 0.2)'
+                                        },
+                                        pointLabels: {
+                                            color: '#e0e0e0',
+                                            font: { family: 'Inter', size: 13 }
+                                        },
+                                        ticks: {
+                                            color: '#ffffff',
+                                            backdropColor: 'transparent',
+                                            stepSize: 1
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    });
+                } else {
+                    console.error("Erro ao buscar gráfico ficha técnica.");
+                }
+            })
+            .catch(function (erro) {
+                console.error(`Erro na obtenção do gráfico de ficha técnico: ${erro.message}`);
+            });
+    }
+
+
+
+    function buscarDestaqueFilme() {
+        fetch("/dashboard/grafico/veredito-tecnico", { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        let labelsBanco = [];
+                        let dadosBanco = [];
+
+                        const cores = {
+                            'Direção': '#003466', 'Roteiro': '#E34633', 'Atuação': '#B13529',
+                            'Trilha': '#000000', 'Fotografia': '#F9D500', 'Ação': '#D9C07D'
+                        };
+                        let coresGrafico = [];
+
+                        for (let i = 0; i < resposta.length; i++) {
+                            labelsBanco.push(resposta[i].destaqueMedalha);
+                            dadosBanco.push(resposta[i].total_votos);
+                            coresGrafico.push(cores[resposta[i].destaqueMedalha] || '#ffffff');
+                        }
+
+                        const graficoMaiorDestaque = document.getElementById('graficoMaiorDestaque');
+                        new Chart(graficoMaiorDestaque, {
+                            type: 'doughnut',
+                            data: {
+                                labels: labelsBanco,
+                                datasets: [{
+                                    data: dadosBanco, borderWidth: 0, backgroundColor: coresGrafico
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    title: {
+                                        display: true,
+                                        text: 'Veredito Técnico',
+                                        color: '#ffffff',
+                                        font: { size: 16 }
+                                    },
+                                    legend: {
+                                        position: 'left',
+                                        labels: { color: "#ffffff" }
+                                    }
+                                }
+                            }
+                        });
+                    });
+                }
+            }).catch(function (erro) { console.error(erro); });
+    }
+
+
+    function buscarComparativo() {
+        let idUsuario = sessionStorage.getItem('ID_USUARIO') || 1;
+
+        fetch(`/dashboard/grafico/comparativo/${idUsuario}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        let labelsFilmes = [];
+                        let dadosUsuario = [];
+                        let dadosComunidade = [];
+
+                        for (let i = 0; i < resposta.length; i++) {
+                            labelsFilmes.push(resposta[i].titulo);
+                            dadosUsuario.push(resposta[i].nota_usuario);
+                            dadosComunidade.push(resposta[i].media_comunidade);
+                        }
+
+                        const graficoComparativo = document.getElementById('graficoComparativoComunidade');
+
+                        new Chart(graficoComparativo, {
+                            type: 'bar',
+                            data: {
+                                labels: labelsFilmes,
+                                datasets: [
+                                    {
+                                        label: 'Você',
+                                        data: dadosUsuario,
+                                        backgroundColor: '#f1c40f'
+                                    },
+                                    {
+                                        label: 'Comunidade',
+                                        data: dadosComunidade,
+                                        backgroundColor: '#000',
+                                        borderColor: '#333333',
+                                        borderWidth: 1
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    title: { 
+                                    display: true, 
+                                    text: 'Comparativo com a comunidade', 
+                                    color: '#fff' },
+                                    legend: { labels: { color: '#fff' } }
+                                },
+                                scales: {
+                                    x: { ticks: { color: "#ffffff" } },
+                                    y: { ticks: { color: "#ffffff" }, min: 0, max: 5 }
+                                }
+                            }
+                        });
+
+                    });
+                }
+            }).catch(function (erro) { console.error(erro); });
+    }
+
+    function buscarEmocoesFrequentes() {
+        fetch("/dashboard/grafico/emocoes", { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        let labelsBanco = [];
+                        let dadosBanco = [];
+
+                        const coresEmocoes = {
+                            'Tensão': '#000000', 'Medo': '#FFFFFF', 'Tristeza': '#E34633',
+                            'Raiva': '#B13529', 'Alegria': '#F9D500'
+                        };
+                        let coresGrafico = [];
+
+                        for (let i = 0; i < resposta.length; i++) {
+                            labelsBanco.push(resposta[i].emocaoDominante);
+                            dadosBanco.push(resposta[i].total_votos);
+                            coresGrafico.push(coresEmocoes[resposta[i].emocaoDominante] || '#fff');
+                        }
+
+                        const graficoEmocoesFrequentes = document.getElementById('graficoEmocoesFrequentes');
+
+                        new Chart(graficoEmocoesFrequentes, {
+                            type: 'pie',
+                            data: {
+                                labels: labelsBanco,
+                                datasets: [{
+                                    data: dadosBanco,
+                                    backgroundColor: coresGrafico,
+                                    borderWidth: 0
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    title: { display: true, 
+                                    text: 'Emoções mais frequentes', 
+                                    color: '#fff' },
+                                    legend: { position: 'left', 
+                                    labels: { color: '#fff' } }
+                                }
+                            }
+                        });
+
+                    });
+                }
+            }).catch(function (erro) { console.error(erro); });
+
+    }
 
 </script>

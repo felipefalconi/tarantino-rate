@@ -2,7 +2,6 @@ var avaliacaoModel = require("../models/avaliacaoModel")
 
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var idUsuario = req.body.idUsuarioServer;
     var idFilme = req.body.idFilmeServer;
     var notaGeral = req.body.notaGeralServer;
@@ -13,7 +12,6 @@ function cadastrar(req, res) {
     var destaqueMedalha = req.body.destaqueMedalhaServer;
     var emocaoDominante = req.body.emocaoDominanteServer;
 
-    // Faça as validações dos valores
     if (idUsuario == undefined) {
         res.status(400).send("O idUsuario está undefined!");
     } else if (idFilme == undefined) {
@@ -34,7 +32,6 @@ function cadastrar(req, res) {
         res.status(400).send("A emocaoDominante está undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         avaliacaoModel.cadastrar(idUsuario, idFilme, notaGeral, notaDialogo, notaTrilhaSonora, notaSangue, notaTensao, destaqueMedalha, emocaoDominante)
             .then(
                 function (resultado) {
