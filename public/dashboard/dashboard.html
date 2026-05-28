@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-     <link
+    <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
@@ -17,12 +17,16 @@
         rel="stylesheet">
 </head>
 
-<body onload="carregar(); carregarNome()">
+<body onload="carregar(); carregarNome(); validarLogin()">
 
     <div class="container-inicio">
         <h1 id="nomeUsuario">Olá, usuário bem vindo a Dashboard!</h1>
 
-        <button class="botao-voltar" onclick="window.location.href='../filmes.html'">Voltar</button>
+        <div class="container-botao-voltar">
+            <button class="botao-voltar" onclick="window.location.href='../filmes.html'">Voltar</button>
+            <button class="botao-sair" onclick="deslogar()">Sair</button>
+        </div>
+
 
     </div>
 
@@ -31,7 +35,7 @@
         <div class="kpi kpi-nivel-fa" style="padding: 20px;">
             <strong>Nível de fã</strong>
             <div class="container-barraProgresso">
-                <div class="barraProgresso" id="barraProgresso" style="width: 60%;">
+                <div class="barraProgresso" id="barraProgresso" style="width: 0%;">
                     <span id="textoProgresso">60%</span>
                 </div>
             </div>
@@ -75,14 +79,14 @@
         </div>
         <div class="grafico">
             <canvas id="graficoMaiorDestaque"></canvas>
-        </div> 
+        </div>
         <div class="grafico">
             <canvas id="graficoEmocoesFrequentes"></canvas>
-        </div>  
+        </div>
         <div class="grafico">
             <canvas id="graficoComparativoComunidade"></canvas>
         </div>
-        
+
 
     </div>
 
@@ -106,6 +110,30 @@
         } else {
             menuNome.innerHTML = "Olá, usuário bem vindo a Dashboard!"
         }
+    }
+
+    function validarLogin() {
+        var idUsuario = sessionStorage.ID_USUARIO
+
+        if (!idUsuario) {
+            alert('Efetue o login para acessar a dashboard! Redirecionando...')
+
+            setTimeout(function () {
+                window.location = "../login.html";
+            }, 1000);
+
+            return
+        }
+
+    }
+
+    function deslogar() {
+        sessionStorage.clear()
+
+        alert("Desconectando...")
+        setTimeout(function () {
+                window.location = "../login.html";
+            }, 1000);
     }
 
     function carregar() {
@@ -274,7 +302,7 @@
                                 plugins: {
                                     title: {
                                         display: true,
-                                        text: 'Ficha Técnica',
+                                        text: 'Ficha Técnica (Média geral)',
                                         color: '#ffffff',
                                         font: { size: 16 }
                                     },
@@ -347,8 +375,8 @@
                             data: {
                                 labels: labelsBanco,
                                 datasets: [{
-                                    data: dadosBanco, 
-                                    borderWidth: 0, 
+                                    data: dadosBanco,
+                                    borderWidth: 0,
                                     backgroundColor: coresGrafico
                                 }]
                             },
@@ -417,14 +445,14 @@
                                 responsive: true,
                                 maintainAspectRatio: false,
                                 plugins: {
-                                    title: { 
-                                    display: true, 
-                                    text: 'Comparativo com a comunidade', 
-                                    color: '#fff',
-                                    font: { size: 16 }
-                                },
-                                    legend: { 
-                                    labels: { color: '#fff' } 
+                                    title: {
+                                        display: true,
+                                        text: 'Comparativo com a comunidade',
+                                        color: '#fff',
+                                        font: { size: 16 }
+                                    },
+                                    legend: {
+                                        labels: { color: '#fff' }
                                     }
                                 },
                                 scales: {
@@ -450,7 +478,7 @@
                         const coresEmocoes = {
                             'Medo': '#000000', 'Nojo': '#FFFFFF', 'Tristeza': '#E34633',
                             'Raiva': '#B13529', 'Alegria': '#F9D500', 'Ansiedade': '#D9C07D', 'Tédio': '#003466'
-                        };  
+                        };
                         let coresGrafico = [];
 
                         for (let i = 0; i < resposta.length; i++) {
@@ -475,14 +503,16 @@
                                 responsive: true,
                                 maintainAspectRatio: false,
                                 plugins: {
-                                    title: { 
-                                    display: true, 
-                                    text: 'Emoções mais frequentes', 
-                                    color: '#fff',
-                                    font: { size: 16 }
+                                    title: {
+                                        display: true,
+                                        text: 'Emoções mais frequentes',
+                                        color: '#fff',
+                                        font: { size: 16 }
                                     },
-                                    legend: { position: 'left', 
-                                    labels: { color: '#fff' } }
+                                    legend: {
+                                        position: 'left',
+                                        labels: { color: '#fff' }
+                                    }
                                 }
                             }
                         });

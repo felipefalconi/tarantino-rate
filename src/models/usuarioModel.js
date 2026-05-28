@@ -4,7 +4,7 @@ function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n function autenticar():", email, senha);
 
     var instrucaoSql = `
-        SELECT idUsuario, nome, username, email, fkFilmeFavorito FROM Usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT idUsuario, nome, username, email, fkFilmeFavorito FROM usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -17,7 +17,7 @@ function cadastrar(nome, username, email, senha, fkFilmeFavorito) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO Usuario(nome, username, email, senha, fkFilmeFavorito) VALUES('${nome}', '${username}', '${email}', '${senha}', ${fkFilmeFavorito});
+        INSERT INTO usuario(nome, username, email, senha, fkFilmeFavorito) VALUES('${nome}', '${username}', '${email}', '${senha}', ${fkFilmeFavorito});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

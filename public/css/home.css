@@ -28,36 +28,6 @@ body {
     min-height: 100vh
 }
 
-.container-grid {
-    font-family: "Cooper Black";
-    width: 100vw;
-    max-width: 1800px;
-    margin: 0 auto;
-}
-
-.menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 30px;
-    margin: 60px;
-}
-
-.menu a:hover {
-    color: #F9D500;
-    transition: 500ms;
-}
-
-.container-grid .titulo {
-    font-family: "Aachen";
-}
-
-
-.container-grid .titulo a {
-    color: #F9D500;
-    font-size: 38px;
-    text-decoration: none;
-}
-
 
 /* História */
 
@@ -319,7 +289,4 @@ body {
         padding: 0 40px;
     }
 
-    .container-grid .titulo a {
-        font-size: 30px;
-    }
 }

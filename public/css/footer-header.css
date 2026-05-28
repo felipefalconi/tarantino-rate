@@ -8,13 +8,16 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
-
+    padding: 12px 20px;
+    height: 90px;
     width: 100%;
+    position: relative;
+    background-color: black;
 }
 
 .banner {
     background-color: black;
+    padding: 0;
 }
 
 .container-grid {
@@ -24,26 +27,42 @@ nav {
     margin: 0 auto;
 }
 
+
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+
 .menu a {
     color: #fff;
     text-decoration: none;
-    font-size: 30px;
-    margin:60px;
+    font-size: 22px;
+
+    transition: 500ms;
+
 }
 
 .menu a:hover {
     color: #F9D500;
-    transition: 500ms;
 }
 
 .container-grid .titulo {
     font-family: "Aachen";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    text-align: center;
 }
 
 .container-grid .titulo a {
     color: #F9D500;
-    font-size: 38px;
+    font-size: 32px;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .conteudo-footer {

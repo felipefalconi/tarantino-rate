@@ -12,38 +12,41 @@
         rel="stylesheet">
 </head>
 
-<header>
-    <div class="banner">
-
-        <div class="container-grid">
-
-            <nav>
-                <div class="menu">
-                    <a href="home.html">História</a>
-                    <a href="filmes.html">Filmes</a>
-
-                </div>
 
 
-                <div class="titulo">
-                    <a href="home.html">Tarantino Rate</a>
-                </div>
+<body onload="carregar()">
 
-                <div class="menu">
-                    <a href="dashboard/dashboard.html">Dashboard</a>
-                    <a href="cadastro.html">Cadastro</a>
-                    <a href="login.html">Login</a>
-                </div>
+    <header>
+        <div class="banner">
 
-            </nav>
+            <div class="container-grid">
+
+                <nav>
+                    <div class="menu">
+                        <a href="" id="nomeUsuario">Usuário</a>
+                        <a href="#historia">História</a>
+                        <a href="filmes.html">Filmes</a>
+
+                    </div>
+
+
+                    <div class="titulo">
+                        <a href="home.html">Tarantino Rate</a>
+                    </div>
+
+                    <div class="menu">
+                        <a href="dashboard/dashboard.html">Dashboard</a>
+                        <a href="cadastro.html">Cadastro</a>
+                        <a href="login.html">Login</a>
+                    </div>
+
+                </nav>
+
+            </div>
 
         </div>
 
-    </div>
-
-</header>
-
-<body>
+    </header>
 
     <div class="container">
         <div class="container-cadastro">
@@ -97,6 +100,18 @@
 
 
 <script>
+
+    const nome = sessionStorage.getItem('USERNAME_USUARIO');
+
+    function carregar() {
+        const menuNome = document.getElementById('nomeUsuario')
+
+        if (nome != null) {
+            menuNome.innerHTML = nome
+        } else {
+            menuNome.innerHTML = "Usuário"
+        }
+    }
 
     let listaCaracteres = ["!", "@", "#", "$", "%", "&", "*", ".", "?", "/"]
     let listaNumeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -183,7 +198,6 @@
             return false;
         }
     }
-
 
 
 

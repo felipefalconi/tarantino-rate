@@ -12,38 +12,40 @@
         rel="stylesheet">
 </head>
 
-<header>
-    <div class="banner">
 
-        <div class="container-grid">
+<body onload="carregar()">
 
-            <nav>
-                <div class="menu">
-                    <a href="home.html">História</a>
-                    <a href="filmes.html">Filmes</a>
+    <header>
+        <div class="banner">
 
-                </div>
+            <div class="container-grid">
+
+                <nav>
+                    <div class="menu">
+                        <a href="" id="nomeUsuario">Usuário</a>
+                        <a href="#historia">História</a>
+                        <a href="filmes.html">Filmes</a>
+
+                    </div>
 
 
-                <div class="titulo">
-                    <a href="home.html">Tarantino Rate</a>
-                </div>
+                    <div class="titulo">
+                        <a href="home.html">Tarantino Rate</a>
+                    </div>
 
-                <div class="menu">
-                    <a href="dashboard/dashboard.html">Dashboard</a>
-                    <a href="cadastro.html">Cadastro</a>
-                    <a href="login.html">Login</a>
-                </div>
+                    <div class="menu">
+                        <a href="dashboard/dashboard.html">Dashboard</a>
+                        <a href="cadastro.html">Cadastro</a>
+                        <a href="login.html">Login</a>
+                    </div>
 
-            </nav>
+                </nav>
+
+            </div>
 
         </div>
 
-    </div>
-
-</header>
-
-<body>
+    </header>
 
     <div class="container">
         <div class="container-cadastro" style="display: flex; height: 550px; justify-content:center ;">
@@ -80,6 +82,20 @@
 
 
 <script>
+
+    const nome = sessionStorage.getItem('USERNAME_USUARIO');
+
+    function carregar() {
+        const menuNome = document.getElementById('nomeUsuario')
+
+        if (nome != null) {
+            menuNome.innerHTML = nome
+        } else {
+            menuNome.innerHTML = "Usuário"
+        }
+    }
+
+
     function entrar() {
         let emailVar = ipt_email.value;
         let usernameVar = ipt_username.value;
